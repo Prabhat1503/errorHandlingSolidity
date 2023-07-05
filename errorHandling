@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.18;
+
+contract errorCheck { 
+    //Function that uses reqiure()
+    function checkRequirement(uint _number) public pure{
+        require(_number == 100, "Seems Like the condition failed");
+    }
+
+    function checkAssert(uint _number) public pure{
+        assert(_number == 0);
+        // string internal str = "You passed the condition!";
+}
+    function checkRevert(uint _withdrawAmount) public view {
+        uint bal = address(this).balance;
+        if (bal < _withdrawAmount) {
+         revert("balance insufficient");
+        }
+
+    }
+}
